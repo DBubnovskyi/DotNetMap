@@ -1,12 +1,14 @@
-﻿using GMap.NET;
+﻿using DotNetMap.Models.Map;
+using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.Projections;
 using System;
 
 namespace DotNetMap.Controls.GoogleMap.MapProviders
 {
-    internal class EsriWorldImageryProvider : GMapProvider
+    internal class EsriWorldImageryProvider : GMapProvider, ITileProvider
     {
+
         public static readonly EsriWorldImageryProvider Instance;
 
         public override Guid Id => Guid.NewGuid();
@@ -29,7 +31,9 @@ namespace DotNetMap.Controls.GoogleMap.MapProviders
             }
         }
 
-        private EsriWorldImageryProvider()
+        ITileProvider ITileProvider.Instance => Instance;
+
+        public EsriWorldImageryProvider()
         {
             MaxZoom = 19;
             MinZoom = 0;

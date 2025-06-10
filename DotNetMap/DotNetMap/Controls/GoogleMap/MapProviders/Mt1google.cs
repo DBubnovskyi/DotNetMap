@@ -1,21 +1,18 @@
-﻿using GMap.NET;
+﻿using DotNetMap.Models.Map;
+using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.Projections;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DotNetMap.Controls.GoogleMap.MapProviders
 {
-    internal class EsriTopoTileProveder : GMapProvider
+    public class Mt1google : GMapProvider, ITileProvider
     {
-        public static readonly EsriTopoTileProveder Instance;
+        public static readonly Mt1google Instance;
 
         public override Guid Id => Guid.NewGuid();
 
-        public override string Name => "OSM";
+        public override string Name => "Sat Google mt1";
 
         public override PureProjection Projection => MercatorProjection.Instance;
 
@@ -33,23 +30,25 @@ namespace DotNetMap.Controls.GoogleMap.MapProviders
             }
         }
 
-        private EsriTopoTileProveder()
+        ITileProvider ITileProvider.Instance => Instance;
+
+        public Mt1google()
         {
-            MaxZoom = 19;
+            MaxZoom = 18;
             MinZoom = 0;
-            Copyright = string.Format("Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community");
+            Copyright = "© Google";
         }
 
-        static EsriTopoTileProveder()
+        static Mt1google()
         {
-            Instance = new EsriTopoTileProveder();
+            Instance = new Mt1google();
         }
 
         public override PureImage GetTileImage(GPoint pos, int zoom)
         {
             try
             {
-                string url = $"https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{zoom}/{pos.Y}/{pos.X}.png";
+                string url = $"https://mt1.google.com/vt/lyrs=s&x={pos.X}&y={pos.Y}&z={zoom}";
                 return GetTileImageUsingHttp(url);
             }
             catch

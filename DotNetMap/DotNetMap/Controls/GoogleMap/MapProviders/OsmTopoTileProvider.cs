@@ -1,4 +1,5 @@
-﻿using GMap.NET;
+﻿using DotNetMap.Models.Map;
+using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.Projections;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DotNetMap.Controls.GoogleMap.MapProviders
 {
-    internal class OsmTopoTileProvider : GMapProvider
+    internal class OsmTopoTileProvider : GMapProvider, ITileProvider
     {
         public static readonly OsmTopoTileProvider Instance;
 
@@ -33,7 +34,9 @@ namespace DotNetMap.Controls.GoogleMap.MapProviders
             }
         }
 
-        private OsmTopoTileProvider()
+        ITileProvider ITileProvider.Instance => Instance;
+
+        public OsmTopoTileProvider()
         {
             MaxZoom = 19;
             MinZoom = 0;

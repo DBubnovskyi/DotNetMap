@@ -3,16 +3,20 @@ using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.Projections;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DotNetMap.Controls.GoogleMap.MapProviders
 {
-    public class TopPlusOpenColorProvider : GMapProvider, ITileProvider
+    internal class EsriTopoTileProvider : GMapProvider, ITileProvider
     {
-        public static readonly TopPlusOpenColorProvider Instance;
+        public static readonly EsriTopoTileProvider Instance;
 
         public override Guid Id => Guid.NewGuid();
 
-        public override string Name => "TopPlusOpen Color";
+        public override string Name => "OSM";
 
         public override PureProjection Projection => MercatorProjection.Instance;
 
@@ -32,18 +36,23 @@ namespace DotNetMap.Controls.GoogleMap.MapProviders
 
         ITileProvider ITileProvider.Instance => Instance;
 
-        public TopPlusOpenColorProvider()
+        public EsriTopoTileProvider()
         {
-            MaxZoom = 18;
+            MaxZoom = 19;
             MinZoom = 0;
-            Copyright = "Map data: © dl-de/by-2-0";
+            Copyright = string.Format("Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community");
+        }
+
+        static EsriTopoTileProvider()
+        {
+            Instance = new EsriTopoTileProvider();
         }
 
         public override PureImage GetTileImage(GPoint pos, int zoom)
         {
             try
             {
-                string url = $"http://sgx.geodatenzentrum.de/wmts_topplus_open/tile/1.0.0/web/default/WEBMERCATOR/{zoom}/{pos.Y}/{pos.X}.png";
+                string url = $"https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{zoom}/{pos.Y}/{pos.X}.png";
                 return GetTileImageUsingHttp(url);
             }
             catch

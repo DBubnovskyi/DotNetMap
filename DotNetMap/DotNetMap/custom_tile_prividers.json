@@ -1,0 +1,39 @@
+{
+    "tileProviders": [
+        {
+            "name": "ArcGIS World Topographic Map",
+            "description": "A topographic map provided by Esri, featuring detailed terrain and geographic features.",
+            "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}.png",
+            "copyright": "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
+            "maxZoom": 19,
+            "minZoom": 0
+        },
+        {
+            "name": "OpenStreetMap",
+            "description": "A free editable map of the whole world, created by volunteers and released with an open license.",
+            "url": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        },
+        {
+            "name": "OpenTopoMap",
+            "description": "A topographic map based on OpenStreetMap data, providing detailed terrain information.",
+            "url": "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
+            "maxZoom": 17,
+            "minZoom": 0
+        },
+        {
+            "name": "Stamen Terrain",
+            "description": "A terrain map provided by Stamen Design, featuring a unique artistic style.",
+            "url": "https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg",
+            "maxZoom": 18,
+            "minZoom": 0
+        },
+        {
+            "name": "ArcGIS World Topographic Map",
+            "description": "A topographic map provided by Esri, featuring detailed terrain and geographic features.",
+            "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}.png",
+            "copyright": "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
+            "maxZoom": 19,
+            "minZoom": 0
+        }
+    ]
+}

@@ -1,4 +1,5 @@
-﻿using GMap.NET;
+﻿using DotNetMap.Models.Map;
+using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.Projections;
 using System;
@@ -9,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace DotNetMap.Controls.GoogleMap.MapProviders
 {
-    internal class OsmFrTileProvider : GMapProvider
+    internal class OsmFrTileProvider : GMapProvider, ITileProvider
     {
         public static readonly OsmFrTileProvider Instance;
 
         public override Guid Id => Guid.NewGuid();
 
-        public override string Name => "OSM";
+        public override string Name => "OSM FR";
 
         public override PureProjection Projection => MercatorProjection.Instance;
 
@@ -33,13 +34,14 @@ namespace DotNetMap.Controls.GoogleMap.MapProviders
             }
         }
 
-        private OsmFrTileProvider()
+        ITileProvider ITileProvider.Instance => Instance;
+
+        public OsmFrTileProvider()
         {
             MaxZoom = 19;
             MinZoom = 0;
             Copyright = string.Format("OpenStreetMap");
         }
-
         static OsmFrTileProvider()
         {
             Instance = new OsmFrTileProvider();

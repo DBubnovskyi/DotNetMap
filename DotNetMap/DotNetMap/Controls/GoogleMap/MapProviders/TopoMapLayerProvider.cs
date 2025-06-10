@@ -1,11 +1,12 @@
-﻿using GMap.NET;
+﻿using DotNetMap.Models.Map;
+using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.Projections;
 using System;
 
 namespace DotNetMap.Controls.GoogleMap.MapProviders
 {
-    internal class TopoMapLayerProvider : GMapProvider
+    internal class TopoMapLayerProvider : GMapProvider, ITileProvider
     {
         public static readonly TopoMapLayerProvider Instance;
 
@@ -29,7 +30,10 @@ namespace DotNetMap.Controls.GoogleMap.MapProviders
             }
         }
 
-        private TopoMapLayerProvider()
+
+        ITileProvider ITileProvider.Instance => Instance;
+
+        public TopoMapLayerProvider()
         {
             MaxZoom = 18;
             MinZoom = 0;

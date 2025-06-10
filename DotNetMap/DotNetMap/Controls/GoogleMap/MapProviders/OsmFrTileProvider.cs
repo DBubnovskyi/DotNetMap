@@ -1,11 +1,12 @@
-﻿using GMap.NET;
+﻿using DotNetMap.Models.Map;
+using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.Projections;
 using System;
 
 namespace DotNetMap.Controls.GoogleMap.MapProviders
 {
-    internal class OsmTileProvider : GMapProvider
+    internal class OsmTileProvider : GMapProvider, ITileProvider
     {
         public static readonly OsmTileProvider Instance;
 
@@ -29,7 +30,9 @@ namespace DotNetMap.Controls.GoogleMap.MapProviders
             }
         }
 
-        private OsmTileProvider()
+        ITileProvider ITileProvider.Instance => Instance;
+
+        public OsmTileProvider()
         {
             MaxZoom = 19;
             MinZoom = 0;
