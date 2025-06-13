@@ -43,6 +43,9 @@
     <Reference Include="GMap.NET.WindowsPresentation, Version=1.7.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
       <HintPath>..\packages\GMap.NET.Presentation.1.7.5\lib\net40\GMap.NET.WindowsPresentation.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -79,14 +82,7 @@
     <Compile Include="Controls\GoogleMap\GoogleMapControl.xaml.cs">
       <DependentUpon>GoogleMapControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\GoogleMap\MapProviders\EsriWorldImageryProvider.cs" />
-    <Compile Include="Controls\GoogleMap\MapProviders\OsmTopoTileProvider.cs" />
-    <Compile Include="Controls\GoogleMap\MapProviders\EsriTopoTileProvider.cs" />
-    <Compile Include="Controls\GoogleMap\MapProviders\OsmTileProveder.cs" />
-    <Compile Include="Controls\GoogleMap\MapProviders\OsmFrTileProvider.cs" />
-    <Compile Include="Controls\GoogleMap\MapProviders\TopoMapLayerProvider.cs" />
-    <Compile Include="Controls\GoogleMap\MapProviders\Mt1google.cs" />
-    <Compile Include="Controls\GoogleMap\MapProviders\TopPlusOpenColorProvider.cs" />
+    <Compile Include="Controls\GoogleMap\GoogleTileProcessor.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -95,6 +91,11 @@
   <ItemGroup>
     <Compile Include="Models\Map\IMapControl.cs" />
     <Compile Include="Models\Map\ITileProvider.cs" />
+    <Compile Include="Models\Map\Models\TileModel.cs" />
+    <Compile Include="Models\Map\Models\TileProviderModel.cs" />
+    <Compile Include="Models\Map\TileManager.cs" />
+    <Compile Include="Processors\CustomTileProvider.cs" />
+    <Compile Include="Processors\FileProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -122,8 +123,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Processors\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
