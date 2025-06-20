@@ -89,10 +89,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Map\IMapControl.cs" />
-    <Compile Include="Models\Map\ITileProvider.cs" />
-    <Compile Include="Models\Map\Models\TileModel.cs" />
-    <Compile Include="Models\Map\Models\TileProviderModel.cs" />
+    <Compile Include="Models\Map\Interfaces\IMapControl.cs" />
+    <Compile Include="Models\Map\Interfaces\ITileServer.cs" />
+    <Compile Include="Models\Map\Interfaces\ITileProvider.cs" />
+    <Compile Include="Models\Map\Models\TileProvider.cs" />
+    <Compile Include="Models\Map\Models\TileServer.cs" />
     <Compile Include="Models\Map\TileManager.cs" />
     <Compile Include="Processors\CustomTileProvider.cs" />
     <Compile Include="Processors\FileProcessor.cs" />

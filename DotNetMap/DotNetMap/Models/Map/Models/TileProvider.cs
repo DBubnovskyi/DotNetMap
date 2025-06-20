@@ -1,9 +1,12 @@
 ﻿using Newtonsoft.Json;
+using System;
 
-namespace DotNetMap.Map.Models
+namespace DotNetMap.Models.Map
 {
-    public class TileModel
+    public class TileProvider : ITileProvider
     {
+        public Guid Id => Guid.NewGuid();
+
         [JsonProperty("name")]
         public string Name { get; set; }
 

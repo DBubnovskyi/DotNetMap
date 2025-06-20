@@ -1,4 +1,4 @@
-﻿using DotNetMap.Models.Map;
+﻿using DotNetMap.Map.Models;
 using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.Projections;
