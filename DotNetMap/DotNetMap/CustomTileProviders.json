@@ -194,6 +194,21 @@
           "isHeigthmap": true
         }
       ]
+    },
+    {
+      "name": "Map Tiler",
+      "tiles": [
+        {
+          "name": "Tiler Toner V2",
+          "description": "A terrain map provided by Map Tiler, featuring elevation data and geographic features.",
+          "url": "https://api.maptiler.com/maps/toner-v2/{z}/{x}/{y}.png?key=FfWBRwplr2FeuAMVPNxp",
+          "copyright": "Tiles &copy; Map Tiler &mdash; Source: Map Tiler, under CC BY 4.0",
+          "maxZoom": 19,
+          "minZoom": 0,
+          "isSatellite": false,
+          "isHeigthmap": true
+        }
+      ]
     }
   ]
 }

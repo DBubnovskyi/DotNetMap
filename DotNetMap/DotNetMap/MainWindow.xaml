@@ -1,5 +1,5 @@
-﻿<Window xmlns:GoogleMap="clr-namespace:DotNetMap.Controls.GoogleMap"  
-        xmlns:Controls="clr-namespace:DotNetMap.Controls.GoogleMap"  
+﻿<Window 
+        xmlns:EsriMap="clr-namespace:DotNetMap.Controls.EsriMap" 
         x:Class="DotNetMap.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -9,6 +9,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <GoogleMap:GoogleMapControl />
+        <EsriMap:EsriMapConstrol />
     </Grid>
 </Window>
