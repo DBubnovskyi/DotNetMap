@@ -1,0 +1,199 @@
+{
+  "tileServers": [
+    {
+      "name": "Google Maps",
+      "tiles": [
+        {
+          "name": "Google Roads",
+          "description": "A road map provided by Google, featuring detailed street information and navigation.",
+          "url": "https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",
+          "copyright": "Tiles &copy; Google Maps &mdash; Source: Google, under CC BY 4.0",
+          "maxZoom": 21,
+          "minZoom": 0,
+          "isSatellite": true,
+          "isHeigthmap": false
+        },
+        {
+          "name": "Google Terrain",
+          "description": "A terrain map provided by Google, featuring elevation data and geographic features.",
+          "url": "https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}",
+          "copyright": "Tiles &copy; Google Maps &mdash; Source: Google, under CC BY 4.0",
+          "maxZoom": 21,
+          "minZoom": 0,
+          "isSatellite": false,
+          "isHeigthmap": false
+        },
+        {
+          "name": "Google Satellite",
+          "description": "A satellite imagery map provided by Google, featuring high-resolution aerial photos.",
+          "url": "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}",
+          "copyright": "Tiles &copy; Google Maps &mdash; Source: Google, under CC BY 4.0",
+          "maxZoom": 21,
+          "minZoom": 0,
+          "isSatellite": true,
+          "isHeigthmap": false
+        },
+        {
+          "name": "Google Hybrid",
+          "description": "A hybrid map combining satellite imagery with street names and geographic features.",
+          "url": "https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}",
+          "copyright": "Tiles &copy; Google Maps &mdash; Source: Google, under CC BY 4.0",
+          "maxZoom": 21,
+          "minZoom": 0,
+          "isSatellite": false,
+          "isHeigthmap": false
+        }
+      ]
+    },
+    {
+      "name": "OpenStreetMap",
+      "tiles": [
+        {
+          "name": "OpenStreetMap",
+          "description": "A free editable map of the whole world, created by volunteers and released with an open license.",
+          "url": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+          "copyright": "Tiles &copy; OpenStreetMap contributors &mdash; Source: OpenStreetMap Foundation, licensed under ODbL",
+          "maxZoom": 19,
+          "minZoom": 0,
+          "isSatellite": false,
+          "isHeigthmap": false
+        },
+        {
+          "name": "OpenTopoMap",
+          "description": "A topographic map based on OpenStreetMap data, providing detailed terrain information.",
+          "url": "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
+          "copyright": "map data: © OpenStreetMap contributors, SRTM | map style: © OpenTopoMap (CC-BY-SA)",
+          "maxZoom": 19,
+          "minZoom": 0,
+          "isSatellite": false,
+          "isHeigthmap": false
+        },
+        {
+          "name": "OpenCyclosmMap dev",
+          "description": "A cycling-oriented map based on OpenStreetMap data, featuring bike paths and related information.",
+          "url": "https://dev.{s}.tile.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png",
+          "copyright": "Tiles &copy; OpenStreetMap contributors &mdash; Source: OpenStreetMap Foundation, licensed under ODbL",
+          "maxZoom": 19,
+          "minZoom": 0,
+          "isSatellite": false,
+          "isHeigthmap": false
+        },
+        {
+          "name": "OpenCyclosmMap b",
+          "description": "A cycling-oriented map based on OpenStreetMap data, featuring bike paths and related information.",
+          "url": "https://b.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png",
+          "copyright": "Tiles &copy; OpenStreetMap contributors &mdash; Source: OpenStreetMap Foundation, licensed under ODbL",
+          "maxZoom": 19,
+          "minZoom": 0,
+          "isSatellite": false,
+          "isHeigthmap": false
+        },
+        {
+          "name": "OpenStreetMap Humanitarian",
+          "description": "A humanitarian-focused map based on OpenStreetMap data, providing detailed information for disaster response and humanitarian efforts.",
+          "url": "https://tile-{s}.openstreetmap.fr/hot/{z}/{x}/{y}.png",
+          "copyright": "Tiles &copy; OpenStreetMap contributors &mdash; Source: OpenStreetMap Foundation, licensed under ODbL",
+          "maxZoom": 19,
+          "minZoom": 0,
+          "isSatellite": false,
+          "isHeigthmap": false
+        }
+      ]
+    },
+    {
+      "name": "CartoDB Maps",
+      "tiles": [
+        {
+          "name": "CartoDB Positron",
+          "description": "A light, minimalist map style provided by CartoDB, suitable for data visualization.",
+          "url": "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png",
+          "copyright": "Tiles &copy; CartoDB &mdash; Source: CartoDB, under CC BY 3.0",
+          "maxZoom": 18,
+          "minZoom": 0,
+          "isSatellite": false,
+          "isHeigthmap": false
+        },
+        {
+          "name": "CartoDB Voyager",
+          "description": "A detailed map style provided by CartoDB, featuring rich geographic information.",
+          "url": "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png",
+          "copyright": "Tiles &copy; CartoDB &mdash; Source: CartoDB, under CC BY 3.0",
+          "maxZoom": 18,
+          "minZoom": 0,
+          "isSatellite": false,
+          "isHeigthmap": false
+        }
+      ]
+    },
+    {
+      "name": "ArcGIS",
+      "tiles": [
+        {
+          "name": "ArcGIS World Topographic",
+          "description": "A topographic map provided by Esri, featuring detailed terrain and geographic features.",
+          "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}.png",
+          "copyright": "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
+          "maxZoom": 19,
+          "minZoom": 0,
+          "isSatellite": false,
+          "isHeigthmap": false
+        },
+        {
+          "name": "ArcGIS World Imagery",
+          "description": "A high-resolution satellite imagery map provided by Esri, suitable for detailed geographic analysis.",
+          "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}.png",
+          "copyright": "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
+          "maxZoom": 19,
+          "minZoom": 0,
+          "isSatellite": false,
+          "isHeigthmap": false
+        }
+      ]
+    },
+    {
+      "name": "Thunderforest",
+      "tiles": [
+        {
+          "name": "Thunderforest Outdoors",
+          "description": "A map designed for outdoor activities, featuring hiking and cycling routes.",
+          "url": "https://tile.thunderforest.com/outdoors/{z}/{x}/{y}.png",
+          "copyright": "Tiles &copy; Thunderforest &mdash; Source: Thunderforest, under CC BY 4.0",
+          "maxZoom": 22,
+          "minZoom": 0,
+          "isSatellite": false,
+          "isHeigthmap": false
+        }
+      ]
+    },
+    {
+      "name": "Geodatenzentrum",
+      "tiles": [
+        {
+          "name": "WMTS Topplus Open",
+          "description": "A topographic map provided by Geodatenzentrum, featuring detailed terrain and geographic features.",
+          "url": "http://sgx.geodatenzentrum.de/wmts_topplus_open/tile/1.0.0/web/default/WEBMERCATOR/{z}/{y}/{x}.png",
+          "copyright": "Tiles &copy; Geodatenzentrum &mdash; Source: Geodatenzentrum, under CC BY 4.0",
+          "maxZoom": 19,
+          "minZoom": 0,
+          "isSatellite": false,
+          "isHeigthmap": false
+        }
+      ]
+    },
+    {
+      "name": "Amazon",
+      "tiles": [
+        {
+          "name": "Terrarium Topographic",
+          "description": "A topographic map provided by Amazon, featuring detailed terrain and geographic features.",
+          "url": "https://elevation-tiles-prod.s3.amazonaws.com/terrarium/{z}/{x}/{y}.png",
+          "copyright": "Tiles &copy; Amazon &mdash; Source: Amazon, under CC BY 4.0",
+          "maxZoom": 19,
+          "minZoom": 0,
+          "isSatellite": false,
+          "isHeigthmap": true
+        }
+      ]
+    }
+  ]
+}

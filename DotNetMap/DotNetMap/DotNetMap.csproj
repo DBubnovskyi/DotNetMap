@@ -79,6 +79,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controls\GoogleMap\GMapCustom.cs" />
+    <Compile Include="Controls\GoogleMap\GMapProviderProcessor.cs" />
     <Compile Include="Controls\GoogleMap\GoogleMapControl.xaml.cs">
       <DependentUpon>GoogleMapControl.xaml</DependentUpon>
     </Compile>
@@ -90,12 +92,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Map\Interfaces\IMapControl.cs" />
+    <Compile Include="Models\Map\Interfaces\ITileManager.cs" />
     <Compile Include="Models\Map\Interfaces\ITileServer.cs" />
     <Compile Include="Models\Map\Interfaces\ITileProvider.cs" />
     <Compile Include="Models\Map\Models\TileProvider.cs" />
     <Compile Include="Models\Map\Models\TileServer.cs" />
-    <Compile Include="Models\Map\TileManager.cs" />
-    <Compile Include="Processors\CustomTileProvider.cs" />
+    <Compile Include="Models\Map\Models\TileManager.cs" />
+    <Compile Include="Processors\CustomTileProcessor.cs" />
     <Compile Include="Processors\FileProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -114,7 +117,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="custom_tile_prividers.json" />
+    <Content Include="CustomTileProviders.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -1,0 +1,15 @@
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DotNetMap.Models.Map.Interfaces
+{
+    public interface ITileManager
+    {
+        List<ITileServer> TileServers { get; set; }
+
+    }
+}

@@ -5,7 +5,7 @@ namespace DotNetMap.Models.Map
 {
     public class TileProvider : ITileProvider
     {
-        public Guid Id => Guid.NewGuid();
+        public Guid Id { get; set; } = Guid.NewGuid();
 
         [JsonProperty("name")]
         public string Name { get; set; }
@@ -30,5 +30,7 @@ namespace DotNetMap.Models.Map
 
         [JsonProperty("isHeigthmap")]
         public bool IsHeightmap { get; set; }
+
+        ITileProvider ITileProvider.Instance => this;
     }
 }

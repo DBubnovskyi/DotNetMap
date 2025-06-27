@@ -21,5 +21,7 @@ namespace DotNetMap.Models.Map
         bool IsSatellite { get; set; }
 
         bool IsHeightmap { get; set; }
+
+        ITileProvider Instance { get; }
     }
 }

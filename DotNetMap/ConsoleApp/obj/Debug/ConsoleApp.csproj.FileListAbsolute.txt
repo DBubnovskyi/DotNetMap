@@ -1,0 +1,16 @@
+C:\Users\d.bubnovskyi\Documents\Projects\Pet\.NetMap\DotNetMap\ConsoleApp\bin\Debug\ConsoleApp.exe.config
+C:\Users\d.bubnovskyi\Documents\Projects\Pet\.NetMap\DotNetMap\ConsoleApp\bin\Debug\ConsoleApp.exe
+C:\Users\d.bubnovskyi\Documents\Projects\Pet\.NetMap\DotNetMap\ConsoleApp\bin\Debug\ConsoleApp.pdb
+C:\Users\d.bubnovskyi\Documents\Projects\Pet\.NetMap\DotNetMap\ConsoleApp\bin\Debug\DotNetMap.exe
+C:\Users\d.bubnovskyi\Documents\Projects\Pet\.NetMap\DotNetMap\ConsoleApp\bin\Debug\Newtonsoft.Json.dll
+C:\Users\d.bubnovskyi\Documents\Projects\Pet\.NetMap\DotNetMap\ConsoleApp\bin\Debug\GMap.NET.WindowsPresentation.dll
+C:\Users\d.bubnovskyi\Documents\Projects\Pet\.NetMap\DotNetMap\ConsoleApp\bin\Debug\GMap.NET.Core.dll
+C:\Users\d.bubnovskyi\Documents\Projects\Pet\.NetMap\DotNetMap\ConsoleApp\bin\Debug\DotNetMap.pdb
+C:\Users\d.bubnovskyi\Documents\Projects\Pet\.NetMap\DotNetMap\ConsoleApp\bin\Debug\DotNetMap.exe.config
+C:\Users\d.bubnovskyi\Documents\Projects\Pet\.NetMap\DotNetMap\ConsoleApp\bin\Debug\Newtonsoft.Json.xml
+C:\Users\d.bubnovskyi\Documents\Projects\Pet\.NetMap\DotNetMap\ConsoleApp\obj\Debug\ConsoleApp.csproj.AssemblyReference.cache
+C:\Users\d.bubnovskyi\Documents\Projects\Pet\.NetMap\DotNetMap\ConsoleApp\obj\Debug\ConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\d.bubnovskyi\Documents\Projects\Pet\.NetMap\DotNetMap\ConsoleApp\obj\Debug\ConsoleApp.csproj.Up2Date
+C:\Users\d.bubnovskyi\Documents\Projects\Pet\.NetMap\DotNetMap\ConsoleApp\obj\Debug\ConsoleApp.exe
+C:\Users\d.bubnovskyi\Documents\Projects\Pet\.NetMap\DotNetMap\ConsoleApp\obj\Debug\ConsoleApp.pdb
+C:\Users\d.bubnovskyi\Documents\Projects\Pet\.NetMap\DotNetMap\ConsoleApp\bin\Debug\CustomTileProviders.json
