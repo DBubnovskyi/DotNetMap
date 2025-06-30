@@ -8,7 +8,32 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <esri:SceneView x:Name="SceneView" />
-        <TextBox x:Name="ApiKey" HorizontalAlignment="Left" TextWrapping="NoWrap" Text="API KEY" VerticalAlignment="TOP" Width="120" TextChanged="TextBox_TextChanged"/>
+        <Grid x:Name="MapContainer" Background="#FF292D31"/>
+        <TextBlock x:Name="CameraData" 
+                 Margin="0 17 0 0" 
+                 HorizontalAlignment="Left" 
+                 TextAlignment="Center" 
+                 TextWrapping="NoWrap"
+                 VerticalAlignment="TOP" 
+                 Width="170"
+                 Height="120"
+                 Background="Transparent"/>
+        <TextBlock x:Name="IsKeyValid" 
+                 Margin="120 0 0 0" 
+                 HorizontalAlignment="Left" 
+                 TextAlignment="Center" 
+                 TextWrapping="NoWrap"
+                 VerticalAlignment="TOP" 
+                 Width="50"
+                 Background="Gray"/>
+        <TextBox x:Name="ApiKey" 
+                 HorizontalAlignment="Left" 
+                 TextWrapping="NoWrap" 
+                 Text="API KEY" 
+                 VerticalAlignment="TOP" 
+                 Width="120" 
+                 TextChanged="TextBox_TextChanged"
+                 BorderBrush="#FFABADB3"
+                 BorderThickness="0"/>
     </Grid>
 </UserControl>
