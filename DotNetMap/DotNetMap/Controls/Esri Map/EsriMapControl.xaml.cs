@@ -1,25 +1,14 @@
 ﻿using Esri.ArcGISRuntime;
-using Esri.ArcGISRuntime.Geometry;
 using Esri.ArcGISRuntime.Mapping;
-using Esri.ArcGISRuntime.UI;
 using Esri.ArcGISRuntime.UI.Controls;
-using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace DotNetMap.Controls.EsriMap
 {
@@ -31,9 +20,16 @@ namespace DotNetMap.Controls.EsriMap
         public EsriMapConstrol()
         {
             InitializeComponent();
+            TileComboBox.ItemsSource = Enum.GetValues(typeof(BasemapStyle)).Cast<BasemapStyle>();
+            TileComboBox.SelectedItem = BasemapStyle.ArcGISImageryStandard;
             ApiKey.Text = "AAPTxy8BH1VEsoebNVZXo8HurBBpdhidc3D37n5gyF1R1Lbhmuqo7pznsNwvbXFfue4RcCnzZAHEbYFRiU0-6YvCGhsW5B9Da3lYzbK8iKxqHiXVlwWCRY_l8Xqsj95TAOsX8w_tYOtqJUk4OUsjTz740JalmHF6_VqsdaBHsIttJkGMlrFemK4dxRs-47cgppdpwZLMCaT4_vLc6qGBlfPLMxLeJQcl7kjF8y8VRlvVuvg.AT1_hs42IvlQ";
+            TextBox_TextChanged(this, new TextChangedEventArgs(TextBox.TextChangedEvent, UndoAction.None));
         }
+
         SceneView _view;
+        Scene _scene;
+        Camera _camera;
+
         private async void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             string apiKey = ApiKey.Text;
@@ -43,23 +39,22 @@ namespace DotNetMap.Controls.EsriMap
 
                 ArcGISRuntimeEnvironment.ApiKey = apiKey;
 
-                var scene = new Scene(BasemapStyle.ArcGISChartedTerritoryBase);
+                _scene = new Scene((BasemapStyle)TileComboBox.SelectedItem);
 
                 const string elevationUrl = "https://elevation3d.arcgis.com/arcgis/rest/services/World_Physical_Map/MapServer/tile";
                 var source = new ArcGISTiledElevationSource(new Uri(elevationUrl));
                 var surface = new Surface();
                 surface.ElevationSources.Add(source);
-                scene.BaseSurface = surface;
+                _scene.BaseSurface = surface;
 
                 _view = new SceneView
                 {
-                    Scene = scene,
+                    Scene = _scene,
                 };
-                _view.DragEnter += SetHeading;
 
                 MapContainer.Children.Add(_view);
 
-                var camera = new Camera(
+                _camera = new Camera(
                     latitude: 37.48013898957171,
                     longitude: 31.679512692563637,
                     altitude: 1225717.2166086873,
@@ -68,14 +63,30 @@ namespace DotNetMap.Controls.EsriMap
                     roll: 0
                 );
 
-                _view.SetViewpointCamera(camera);
+                _view.SetViewpointCamera(_camera);
+                _view.ViewpointChanged += SetHeading;
             }
         }
 
-        private void SetHeading(object sender, DragEventArgs e)
+        private void SetHeading(object sender, EventArgs e)
         {
-            CameraData.Text = $"Heading: {_view.Camera.Heading}\n" +
-                $"m: {_view.Camera.Location.M}";
+            var camera = _view.Camera;
+            var location = camera.Location;
+
+            double latitude = location.Y;
+            double longitude = location.X;
+            double altitude = location.Z;
+            double heading = camera.Heading;
+            double pitch = 90.0 - camera.Pitch; // конвертація tilt → pitch
+            double roll = camera.Roll;
+
+            CameraData.Text =
+                $"Latitude: {latitude:F8}\n" +
+                $"Longitude: {longitude:F8}\n" +
+                $"Altitude: {altitude:F2} m\n" +
+                $"Heading: {heading:F2}°\n" +
+                $"Pitch: {pitch:F2}°\n" +
+                $"Roll: {roll:F2}°";
         }
 
         private async Task<bool> IsApiKeyValidAsync(string apiKey)
@@ -131,6 +142,22 @@ namespace DotNetMap.Controls.EsriMap
                 }
                 return false;
             }
+        }
+
+        private void TileComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (_scene != null && TileComboBox.SelectedItem is BasemapStyle selectedStyle)
+            {
+                _scene.Basemap = new Basemap(selectedStyle);
+            }
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var camera = _view.Camera;
+            var rotatedCamera = camera.RotateTo(0, camera.Pitch, camera.Roll);
+
+            await _view.SetViewpointCameraAsync(rotatedCamera); // ← застосування
         }
     }
 }
