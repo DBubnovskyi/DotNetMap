@@ -95,6 +95,8 @@
     <Compile Include="Controls\Esri Map\EsriMapControl.xaml.cs">
       <DependentUpon>EsriMapControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Esri Map\EsriProvider.cs" />
+    <Compile Include="Controls\Esri Map\EsriTileProcessor.cs" />
     <Compile Include="Controls\GoogleMap\GMapCustom.cs" />
     <Compile Include="Controls\GoogleMap\GMapProviderProcessor.cs" />
     <Compile Include="Controls\GoogleMap\GoogleMapControl.xaml.cs">

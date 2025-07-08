@@ -1,4 +1,6 @@
-﻿using Esri.ArcGISRuntime;
+﻿using DotNetMap.Controls.Esri_Map;
+using DotNetMap.Controls.GoogleMap;
+using Esri.ArcGISRuntime;
 using Esri.ArcGISRuntime.Mapping;
 using Esri.ArcGISRuntime.UI.Controls;
 using System;
@@ -20,15 +22,21 @@ namespace DotNetMap.Controls.EsriMap
         public EsriMapConstrol()
         {
             InitializeComponent();
-            TileComboBox.ItemsSource = Enum.GetValues(typeof(BasemapStyle)).Cast<BasemapStyle>();
-            TileComboBox.SelectedItem = BasemapStyle.ArcGISImageryStandard;
+
+            //TileComboBox.ItemsSource = Enum.GetValues(typeof(BasemapStyle)).Cast<BasemapStyle>();
+            //TileComboBox.SelectedItem = BasemapStyle.ArcGISImageryStandard;
+
+            TileComboBox.ItemsSource = EsriTileProcessor.EsriProviders;
+            TileComboBox.DisplayMemberPath = "Name";
+            TileComboBox.SelectedIndex = EsriTileProcessor.EsriProviders.Any() ? 0 : -1;
+
             ApiKey.Text = "AAPTxy8BH1VEsoebNVZXo8HurBBpdhidc3D37n5gyF1R1Lbhmuqo7pznsNwvbXFfue4RcCnzZAHEbYFRiU0-6YvCGhsW5B9Da3lYzbK8iKxqHiXVlwWCRY_l8Xqsj95TAOsX8w_tYOtqJUk4OUsjTz740JalmHF6_VqsdaBHsIttJkGMlrFemK4dxRs-47cgppdpwZLMCaT4_vLc6qGBlfPLMxLeJQcl7kjF8y8VRlvVuvg.AT1_hs42IvlQ";
             TextBox_TextChanged(this, new TextChangedEventArgs(TextBox.TextChangedEvent, UndoAction.None));
         }
 
-        SceneView _view;
-        Scene _scene;
-        Camera _camera;
+        private readonly SceneView _view = new SceneView();
+        private readonly Scene _scene = new Scene();
+        private Camera _camera;
 
         private async void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -39,7 +47,7 @@ namespace DotNetMap.Controls.EsriMap
 
                 ArcGISRuntimeEnvironment.ApiKey = apiKey;
 
-                _scene = new Scene((BasemapStyle)TileComboBox.SelectedItem);
+                _scene.Basemap = (Basemap)TileComboBox.SelectedItem;
 
                 const string elevationUrl = "https://elevation3d.arcgis.com/arcgis/rest/services/World_Physical_Map/MapServer/tile";
                 var source = new ArcGISTiledElevationSource(new Uri(elevationUrl));
@@ -47,19 +55,17 @@ namespace DotNetMap.Controls.EsriMap
                 surface.ElevationSources.Add(source);
                 _scene.BaseSurface = surface;
 
-                _view = new SceneView
-                {
-                    Scene = _scene,
-                };
+                _view.Scene = _scene;
+                if (!MapContainer.Children.Contains(_view))
+                    MapContainer.Children.Add(_view);
 
-                MapContainer.Children.Add(_view);
 
                 _camera = new Camera(
                     latitude: 37.48013898957171,
                     longitude: 31.679512692563637,
                     altitude: 1225717.2166086873,
                     heading: 0,
-                    pitch: 90 - 39.955294751008054, // конвертація tilt → pitch
+                    pitch: 90 - 39.955294751008054,
                     roll: 0
                 );
 
@@ -77,7 +83,7 @@ namespace DotNetMap.Controls.EsriMap
             double longitude = location.X;
             double altitude = location.Z;
             double heading = camera.Heading;
-            double pitch = 90.0 - camera.Pitch; // конвертація tilt → pitch
+            double pitch = 90.0 - camera.Pitch; 
             double roll = camera.Roll;
 
             CameraData.Text =
@@ -146,9 +152,9 @@ namespace DotNetMap.Controls.EsriMap
 
         private void TileComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (_scene != null && TileComboBox.SelectedItem is BasemapStyle selectedStyle)
+            if (_scene != null && TileComboBox.SelectedItem is Basemap selectedStyle)
             {
-                _scene.Basemap = new Basemap(selectedStyle);
+                _scene.Basemap = selectedStyle;
             }
         }
 
@@ -157,7 +163,7 @@ namespace DotNetMap.Controls.EsriMap
             var camera = _view.Camera;
             var rotatedCamera = camera.RotateTo(0, camera.Pitch, camera.Roll);
 
-            await _view.SetViewpointCameraAsync(rotatedCamera); // ← застосування
+            await _view.SetViewpointCameraAsync(rotatedCamera);
         }
     }
 }
