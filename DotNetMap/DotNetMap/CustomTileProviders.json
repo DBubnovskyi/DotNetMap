@@ -81,7 +81,7 @@
         {
           "name": "OpenCyclosmMap b",
           "description": "A cycling-oriented map based on OpenStreetMap data, featuring bike paths and related information.",
-          "url": "https://b.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png",
+          "url": "https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png",
           "copyright": "Tiles &copy; OpenStreetMap contributors &mdash; Source: OpenStreetMap Foundation, licensed under ODbL",
           "maxZoom": 19,
           "minZoom": 0,

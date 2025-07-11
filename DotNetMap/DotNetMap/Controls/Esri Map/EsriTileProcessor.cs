@@ -28,7 +28,7 @@ namespace DotNetMap.Controls.Esri_Map
                 foreach (ITileProvider tileProvider in server.TileProviders)
                 {
                     tileProvider.Url = tileProvider.Url
-                        .Replace("{s}", "{subDomain}")
+                        .Replace("{s}", "a")
                         .Replace("{z}", "{level}")
                         .Replace("{x}", "{col}")
                         .Replace("{y}", "{row}");
